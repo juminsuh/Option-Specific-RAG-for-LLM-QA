@@ -1,21 +1,27 @@
-# Team5_NLP_Upstage
-[25-2 NLP] Term Project. Enhancing a QA performance of LLM (Solar Pro 2) using RAG and Prompt engineering.
+## Option-Specific RAG for LLM Question Answering 
+### 📖 Introduction
+
+This project aims to improve the multiple-choice question answering performance of **Solar Pro 2** through option-specific Retrieval-Augmented Generation (RAG), question-type-aware prompt engineering, and ensemble-based answer selection.
 
 ### 📌 Key Features
-1. We used a LLM router to utilize different prompts depending on the question type (EWHA or MMLU).
-2. We parsed a table into a raw text, which enables LLM to understand better.
-3. We implement RAG for each option, motivated by running RAG once for the 'Question + All Options' often fails to retrieve sufficient context for every specific options.
-4. We wrote prompts by empirically adding execution protocols based on the mistakes the model made, such as verification, the format of output, and etc. 
-5. We leveraged ensemble in order to ensure a more stable and robust final answer through majority voting.
 
-### System Architecture
+1. **Question-Type-Aware Routing:** Used an LLM-based router to select tailored prompts for EWHA and MMLU questions.
+2. **Table-to-Text Conversion:** Converted tabular content into structured text to make retrieved information more accessible to the LLM.
+3. **Option-Specific RAG:** Retrieved supporting context separately for each answer option, addressing the limitations of retrieving context only once for the entire question and all options.
+4. **Error-Driven Prompt Engineering:** Iteratively refined prompts based on observed model errors, incorporating explicit verification steps, reasoning instructions, and output-format constraints.
+5. **Majority-Voting Ensemble:** Aggregated predictions through majority voting to improve the consistency and robustness of final answers.
 
+### 🧩 System Architecture
+
+![Image](./assets/image.png)
 
 ### ✨ Results
 
-- EWHA: 100% (25/25)
-- MMLU: 76% (19/25)
-- Total: 88% (44/50)
+| Dataset | Correct / Total | Accuracy |
+|---|---:|---:|
+| EWHA | 25 / 25 | **100%** |
+| MMLU | 19 / 25 | **76%** |
+| **Overall** | **44 / 50** | **88%** |
 
 
 ### 🛠️ Setting
