@@ -51,7 +51,6 @@ pip install -r requirements.txt
 
 
 ### 🔥 Implement run.py
----
 ```
 python run.py --data_path ./datasets/testset.csv
 ```
