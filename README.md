@@ -64,6 +64,16 @@ python run.py --data_path <your_testsets_directory>
 python score.py
 ```
 
+### 😊 My Contribution
+
+**Minsuh Joo: RAG Pipeline & Prompt Engineering**
+
+- **EWHA QA Pipeline:** Developed the question-answering pipeline for EWHA-specific questions.
+- **MMLU Prompt Engineering:** Designed and refined prompts for MMLU questions to improve answer accuracy.
+- **Code Integration & Refactoring:** Integrated team-developed components and refactored the codebase for a unified QA workflow.
+- **Project Documentation:** Organized the GitHub repository and prepared project documentation.
+- **Presentation:** Created presentation slides and delivered the final project presentation.
+
 ### 📚 Source
 
 We utilized textbook and QA datasets from hugging face. 
