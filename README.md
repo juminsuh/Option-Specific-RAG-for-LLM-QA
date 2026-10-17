@@ -47,10 +47,7 @@ conda activate team5 # activate
 pip install -r requirements.txt
 ```
 
-**🥳 You are ready to run the code!**
-
-
-### 🔥 Implement run.py
+### 🔥 Implement 
 ```
 python run.py --data_path ./datasets/testset.csv
 ```
