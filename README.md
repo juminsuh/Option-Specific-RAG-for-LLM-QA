@@ -5,7 +5,7 @@ This project aims to improve the multiple-choice question answering performance 
 
 ### 📌 Key Features
 
-1. **Question-Type-Aware Routing:** Used an LLM-based router to select tailored prompts for EWHA and MMLU questions.
+1. **Question-Type-Aware Routing:** Used an LLM-based router to select tailored prompts for school policy and MMLU questions.
 2. **Table-to-Text Conversion:** Converted tabular content into structured text to make retrieved information more accessible to the LLM.
 3. **Option-Specific RAG:** Retrieved supporting context separately for each answer option, addressing the limitations of retrieving context only once for the entire question and all options.
 4. **Error-Driven Prompt Engineering:** Iteratively refined prompts based on observed model errors, incorporating explicit verification steps, reasoning instructions, and output-format constraints.
@@ -19,7 +19,7 @@ This project aims to improve the multiple-choice question answering performance 
 
 | Dataset | Correct / Total | Accuracy |
 |---|---:|---:|
-| EWHA | 25 / 25 | **100%** |
+| School Policy | 25 / 25 | **100%** |
 | MMLU | 19 / 25 | **76%** |
 | **Overall** | **44 / 50** | **88%** |
 
@@ -64,9 +64,10 @@ python score.py
 
 **Minsuh Joo: RAG Pipeline & Prompt Engineering**
 
-- **EWHA QA Pipeline:** Developed the question-answering pipeline for EWHA-specific questions.
-- **MMLU Prompt Engineering:** Designed and refined prompts for MMLU questions to improve answer accuracy.
-- **Code Integration & Refactoring:** Integrated team-developed components and refactored the codebase for a unified QA workflow.
+- **Data Processing:** Developed the data processing pipeline for school policy-specific question-answering system. Identified tables embedded in raw text as a bottleneck for QA performance and restructured them into coherent, retrieval-friendly text representations to improve the usability of the source documents.
+- **RAG Strategy**: Designed an option-specific RAG approach that retrieves supporting documents for each answer choice independently, allowing the model to assess whether each option is true or false based on retrieved evidence. Proposed a majority-voting ensemble that solves each question multiple times and aggregates the predictions, achieving up to 88% validation accuracy. Additionally, incorporated both relevance and diversity into document retrieval to reduce redundancy and provide broader supporting evidence.
+- **Prompt Engineering:** Analyzed error patterns in validation questions and translated recurring failure cases into generalizable instructions, such as avoiding unsupported assumptions and selecting the closest available option when no answer appears fully correct. Structured the reasoning workflow into explicit stages—question comprehension, option-by-option evaluation, and answer verification—rather than relying on a single-step instruction.
+- **Code Integration & Refactoring:** Integrated independently developed components from team members and refactored the codebase into a unified, end-to-end QA pipeline, enabling retrieval, answer generation, and verification to run within a single workflow. 
 - **Project Documentation:** Organized the GitHub repository and prepared project documentation.
 - **Presentation:** Created presentation slides and delivered the final project presentation.
 
